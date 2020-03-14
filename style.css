@@ -1,0 +1,22 @@
+.page-content{
+  padding: 8px;
+  margin: 0 auto;
+  position: relative;
+  max-width: 500px;
+}
+
+.mdl-tabs__panel{
+  padding: 8px;
+}
+
+#code_editor{
+  width:100%;
+  font-family: monospace;
+}
+
+.mdl-card{
+  /* margin:8px auto; */
+  width: 100%;
+  margin:8px 0;
+  min-height: 0;
+}
