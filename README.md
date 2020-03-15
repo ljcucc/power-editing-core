@@ -1,5 +1,6 @@
 # Core of Power Editing 
-Because used the core of power editing is too messy, so I rewrite of it.
+A core of lisp that powerd by Javascript in your browser.
+*Because used the core of power editing is too messy, so I rewrite of it.*
 
 ## Demo 
 Goto [Demos](./demo/) to try it.
