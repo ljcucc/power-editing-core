@@ -2,7 +2,7 @@
 Because used the core of power editing is too messy, so I rewrite of it.
 
 ## Demo 
-Goto [Demos](https://ljcucc.github.io/power-editing-core/demo/) to try it.
+Goto [Demos](./demo/) to try it.
 
 ## How it works
 First, the interpreter will turn lisp code string to a arrays structure. then convert it into a Javascript code. then using `window.eval` function to run it.
