@@ -1,5 +1,5 @@
 # Core of Power Editing 
-A core of lisp that powerd by Javascript in your browser.
+A core of lisp that powered by Javascript in your browser.
 *Because used the core of power editing is too messy, so I rewrite of it.*
 
 ## Demo 
