@@ -1,5 +1,5 @@
 (()=>{
-  var consoleExpand = false;
+  var consoleExpand = true;
   function load(){
     $("#toggle_console").click(e=>{
       consoleExpand = !consoleExpand;
@@ -18,6 +18,10 @@
     console.log(result);
     eval(result);
   }
+
+  $.getJSON("./basic.json", e=>{
+    add_gfunc(e);
+  });
 
   window.addEventListener("load",load);
 })();
