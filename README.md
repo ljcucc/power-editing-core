@@ -12,3 +12,7 @@ Demo of functions and syntaxs.
 * (set [name] as [value]) : set or create a variable with a value.
 * (show message as [value]) : show a message with a value
 * (+ value...) : add a seris of value together with JavaScript method.
+* (- value...): substruction
+* (* value...): multiplication
+* (/ value...): division
+* (inupt *message): make an input (beta)
