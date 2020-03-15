@@ -10,11 +10,36 @@
     "syntax":"$name as $value"
   },
   "+":{
-    "type":"list",
+    "type":"reduce",
     "code":"(acc, cur)=>acc+cur"
   },
   "-":{
-    "type":"list",
+    "type":"reduce",
     "code":"(acc, cur)=>acc-cur"
+  },
+  "*":{
+    "type":"reduce",
+    "code":"(acc, cur)=>acc*cur"
+  },
+  "/":{
+    "type":"reduce",
+    "code":"(acc, cur)=>acc/cur"
+  },
+  "and":{
+    "type":"reduce",
+    "code":"(acc, cur)=>acc&&cur"
+  },
+  "or":{
+    "type":"reduce",
+    "code":"(acc, cur)=>acc||cur"
+  },
+  "input":{
+    "type":"template",
+    "syntax":"$input",
+    "code":"(()=>{var show = '{{0}}'; prompt(show == '{{'+'0}}'? '': show)})();"
+  },
+  "if":{
+    "type":"list",
+    "code":"lisp_lib.if({{0}})"
   }
 }
