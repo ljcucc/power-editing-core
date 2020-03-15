@@ -2,7 +2,7 @@ var lisp_func = {};
 
 function syntax(index, name,val){
   if(name == undefined) return false;
-  if(index < val.length && name[0] == "$") return true;
+  if(index < val.length && (name[0] == "$" || name[0] == "*")) return true;
   return index < val.length && val[index] == "$"+name;
 }
 
@@ -23,6 +23,12 @@ function get_func_reduce(reducer){
   }
 }
 
+function get_func_callback(callback){
+  return (val)=>{
+    return callback.replace("{{0}}",`[${val}]`);
+  }
+}
+
 function add_gfunc(json_obj, namespace){
   for(var key in json_obj){
     var item = json_obj[key];
@@ -39,8 +45,10 @@ function add_gfunc(json_obj, namespace){
 
     if(item.type == "template")
       lisp_func[name] = get_func_template(item.code, item.syntax)
-    else if(item.type == "list")
+    else if(item.type == "reduce")
       lisp_func[name] = get_func_reduce(item.code);
+    else if(item.type == "list")
+    lisp_func[name] = get_func_callback(item.code);
   }
 
   console.log(lisp_func);
