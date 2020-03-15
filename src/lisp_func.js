@@ -1,26 +1,47 @@
-var lisp_func = {
-  "$print":function (val){
-    console.log(val);
-    return `console.log("print with:" +${val[0]});`;
-  },
-  "$set":function (val){
-    console.log(val)
-    if(syntax(2, "as", val))
-      return `var ${val[0]} = ${val[2]};`;
-    return `throw "syntax error: set [name] as [value]"`
-  },
-  "$show":function (val){
-    if(syntax(1, "message",val) && syntax(2, "as", val))
-      return `alert(${val[2]})`
-  },
-  "$+":function (val){
-    console.log(val);
-    return "("+val.join("+")+")"
-  }
-};
+var lisp_func = {};
 
 function syntax(index, name,val){
-  console.log(`${val[index-1]}==${ "$"+name}`)
-  console.log(`${index}>=${val.length}`)
-  return index < val.length && val[index-1] == "$"+name;
+  if(name == undefined) return false;
+  if(index < val.length && name[0] == "$") return true;
+  return index < val.length && val[index] == "$"+name;
+}
+
+function get_func_template(code, s){
+  return (val)=>{
+    var syntaxs = s instanceof Array? syntax : s.split(" ");
+    return val.reduce((acc, cur, index)=>{
+      if(index < syntaxs.length && syntax(index, syntaxs[index], val))
+        return acc.replace(`{{${index}}}`, cur);
+      throw "erorr with syntax."
+    },code);
+  }
+}
+
+function get_func_reduce(reducer){
+  return (val)=>{
+    return `[${val}].reduce(${reducer})`;
+  }
+}
+
+function add_gfunc(json_obj, namespace){
+  for(var key in json_obj){
+    var item = json_obj[key];
+    var name =  namespace? `$${
+      namespace
+    }.${ 
+      key
+    }`: `$${key}`;
+
+    console.log({
+      name,
+      item
+    })
+
+    if(item.type == "template")
+      lisp_func[name] = get_func_template(item.code, item.syntax)
+    else if(item.type == "list")
+      lisp_func[name] = get_func_reduce(item.code);
+  }
+
+  console.log(lisp_func);
 }
