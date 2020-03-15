@@ -1,0 +1,20 @@
+{
+  "show":{
+    "type":"template",
+    "code":"alert({{2}})",
+    "syntax":"message as $value"
+  },
+  "set":{
+    "type":"template",
+    "code":"let {{0}} = {{2}}",
+    "syntax":"$name as $value"
+  },
+  "+":{
+    "type":"list",
+    "code":"(acc, cur)=>acc+cur"
+  },
+  "-":{
+    "type":"list",
+    "code":"(acc, cur)=>acc-cur"
+  }
+}
