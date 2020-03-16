@@ -8,6 +8,9 @@ Goto [Demos](./demo/) to try it.
 ## How it works
 First, the interpreter will turn lisp code string to a arrays structure. then convert it into a Javascript code. then using `window.eval` function to run it.
 
+## Try it on your website
+Find more about how to use it on your website. go [here](./docs/GetStarted.md)
+
 ## Reference
 Demo of functions and syntaxs.
 * (set [name] as [value]) : set or create a variable with a value.
