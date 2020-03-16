@@ -1,5 +1,5 @@
 # Core of Power Editing 
-(In development... )
+(In development... 🦺)
 A core of lisp that powered by Javascript in your browser.
 *Because used the core of power editing is too messy, so I rewrite of it.*
 
