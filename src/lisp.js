@@ -15,7 +15,7 @@ function lisp(parsed, noParse){
       if(is_func)
         return lisp_func[is_func.name](lisp(is_func.args, true));
 
-      return lisp(o);
+      return JSON.stringify(lisp(o));
     }
 
     return convert2Value(o);
