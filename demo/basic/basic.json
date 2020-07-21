@@ -1,45 +1,44 @@
 {
-  "show":{
+  "msg":{
     "type":"template",
-    "code":"alert({{2}})",
-    "syntax":"message as $value"
-  },
-  "set":{
-    "type":"template",
-    "code":"let {{0}} = {{2}}",
-    "syntax":"$name as $value"
+    "code":"alert(lisp_lib.provar({{0}}));",
+    "syntax":"$str"
   },
   "+":{
     "type":"reduce",
-    "code":"(acc, cur)=>acc+cur"
+    "code":"(acc, cur)=>lisp_lib.provar(acc)+lisp_lib.provar(cur)"
   },
   "-":{
     "type":"reduce",
-    "code":"(acc, cur)=>acc-cur"
+    "code":"(acc, cur)=>lisp_lib.provar(acc)-lisp_lib.provar(cur)"
   },
   "*":{
     "type":"reduce",
-    "code":"(acc, cur)=>acc*cur"
+    "code":"(acc, cur)=>lisp_lib.provar(acc)*lisp_lib.provar(cur)"
   },
   "/":{
     "type":"reduce",
-    "code":"(acc, cur)=>acc/cur"
+    "code":"(acc, cur)=>lisp_lib.provar(acc)/lisp_lib.provar(cur)"
   },
   "and":{
     "type":"reduce",
-    "code":"(acc, cur)=>acc&&cur"
+    "code":"(acc, cur)=>lisp_lib.provar(acc)&&lisp_lib.provar(cur)"
   },
   "or":{
     "type":"reduce",
-    "code":"(acc, cur)=>acc||cur"
+    "code":"(acc, cur)=>lisp_lib.provar(acc)||lisp_lib.provar(cur)"
   },
   "input":{
     "type":"template",
     "syntax":"$input",
-    "code":"(()=>{var show = '{{0}}'; prompt(show == '{{'+'0}}'? '': show)})();"
+    "code":"(()=>{var show = '{{0}}'; return prompt(show == '{{'+'0}}'? '': show))();"
   },
   "if":{
     "type":"list",
     "code":"lisp_lib.if({{0}})"
+  },
+  "var":{
+    "type":"list",
+    "code":"lisp_lib_wapper.c_var(e_funcs,{{0}});"
   }
 }
