@@ -45,10 +45,10 @@ function convert2Value(value){
 }
 
 function tokenize(code){
-  return code.replace(/^;.*\n?/gm, '').split('"').map((x, i)=>{
+  return code.replace(/\;/g, '\n;').replace(/^;.*\n?/gm, '').split('"').map((x, i)=>{
     return i % 2 === 0 ? 
       x.replace(/\(/g, ' ( ')
-      .replace(/\)/g, ' ) ')
+      .replace(/\)/g, ' ) ')      
 
       :x.replace(/ /g,"!whitespace!")
       .replace(/\(/g,"!str_pstart!")
