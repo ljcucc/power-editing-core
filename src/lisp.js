@@ -41,7 +41,8 @@ function isFunction(list){
 
 function convert2Value(value){
   console.log(JSON.stringify(value))
-  return value[0] == "$" ? value : JSON.stringify(value);
+  // return value[0] == "$" ? value : JSON.stringify(value);
+  return JSON.stringify(value);
 }
 
 function tokenize(code){
