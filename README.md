@@ -1,5 +1,6 @@
 # Core of Power Editing 
 (In development... 🦺)
+![poster 002](https://user-images.githubusercontent.com/22980191/99205667-2dde9f00-27f4-11eb-9f16-3a95c2a82eaa.jpeg)
 A core of lisp that powered by Javascript in your browser. Help you to build your website and application faster.
 
 ## Demo 
